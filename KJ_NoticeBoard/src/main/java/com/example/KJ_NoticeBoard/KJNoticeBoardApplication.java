@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KjNoticeBoardApplication {
+public class KJNoticeBoardApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KjNoticeBoardApplication.class, args);
+		SpringApplication.run(KJNoticeBoardApplication.class, args);
 	}
 
 }
