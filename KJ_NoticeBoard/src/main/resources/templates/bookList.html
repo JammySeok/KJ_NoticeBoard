@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>---도서목록---</title>
 </head>
 <body>
-    <table border="1">
-        <tr>
-            <th>bookid</th>
-            <th>bookname</th>
-            <th>publisher</th>
-            <th>price</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-        </tr>
-    </table>
+<table border="1">
+    <tr>
+        <th>bookid</th>
+        <th>bookname</th>
+        <th>publisher</th>
+        <th>price</th>
+    </tr>
+    <tr th:each = "board: ${bookList}">
+        <td>
+            <a th:text = "${board.bookid}"></a>
+        </td>
+        <td th:text = "${board.bookname}"></td>
+        <td th:text = "${board.publisher}"></td>
+        <td th:text = "${board.price}"></td>
+    </tr>
+</table>
 </body>
 </html>
