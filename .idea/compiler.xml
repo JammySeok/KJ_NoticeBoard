@@ -4,7 +4,7 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="17">
       <module name="KJ_NoticeBoard.KJ_NoticeBoard.main~1" target="17" />
       <module name="KJ_NoticeBoard.KJ_NoticeBoard.test~1" target="17" />
     </bytecodeTargetLevel>

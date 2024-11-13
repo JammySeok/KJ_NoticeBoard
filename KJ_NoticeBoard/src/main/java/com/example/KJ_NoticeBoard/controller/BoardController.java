@@ -5,7 +5,9 @@ import com.example.KJ_NoticeBoard.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -23,9 +25,15 @@ public class BoardController {
         return "bookList";
     }
 
-    // 도서 추가
-    @GetMapping("/addbook")
+    // 도서 추가 화면 호출
+    @GetMapping("/addBook")
     public String addBook() {
         return "addBook";
+    }
+
+    // 도서 추가 (DB 저장)
+    @PostMapping("/addBook")
+    public void save(BoardDTO boardDTO) {
+        boardService.save(boardDTO);
     }
 }

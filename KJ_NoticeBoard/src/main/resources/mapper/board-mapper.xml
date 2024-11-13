@@ -10,4 +10,11 @@
         FROM book
         ORDER BY bookid ASC
     </select>
+
+    <!-- 도서추가 -->
+    <insert id="save" parameterType="board">
+        INSERT INTO book (bookname, publisher, price)
+        VALUES (#{bookname}, #{publisher}, #{price})
+    </insert>
+
 </mapper>
