@@ -22,4 +22,14 @@ public class BoardService {
     public void save(BoardDTO boardDTO) {
         boardRepository.save(boardDTO);
     }
+
+    // 도서 상세정보 가져오기
+    public BoardDTO detail(Integer id) {
+        return boardRepository.detail(id);
+    }
+
+    // 도서정보 삭제하기
+    public void goDelete(Integer id) {
+        boardRepository.goDelete(id);
+    }
 }

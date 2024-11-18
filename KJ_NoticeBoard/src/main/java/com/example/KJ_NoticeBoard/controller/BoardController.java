@@ -5,8 +5,8 @@ import com.example.KJ_NoticeBoard.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -35,5 +35,21 @@ public class BoardController {
     @PostMapping("/addBook")
     public void save(BoardDTO boardDTO) {
         boardService.save(boardDTO);
+    }
+
+    // 도서 상세정보 가져오기
+    @GetMapping("/{id}")
+    public String detail(@PathVariable("id") Integer id, Model model) {
+        BoardDTO boardDTO = boardService.detail(id);
+        model.addAttribute("bookDetail", boardDTO);
+
+        return "detailBook";
+    }
+
+    // 도서 정보 삭제하기
+    @GetMapping("/goDelete/{id}")
+    public String goDelete(@PathVariable("id") Integer id) {
+       boardService.goDelete(id);
+       return "redirect:/list";
     }
 }

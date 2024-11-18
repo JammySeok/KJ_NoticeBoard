@@ -20,4 +20,12 @@ public class BoardRepository {
     public void save(BoardDTO boardDTO) {
         sql.insert("Board.save", boardDTO);
     }
+
+    public BoardDTO detail(Integer id) {
+        return sql.selectOne("Board.detail", id);
+    }
+
+    public void goDelete(Integer id) {
+        sql.delete("Board.goDelete", id);
+    }
 }

@@ -17,4 +17,15 @@
         VALUES (#{bookname}, #{publisher}, #{price})
     </insert>
 
+    <!-- 상세보기 -->
+    <select id="detail" parameterType="int" resultType="board">
+        SELECT bookid, bookname, publisher, price
+        FROM book
+        WHERE bookid = #{id}
+    </select>
+
+    <!-- 삭제 -->
+    <delete id="goDelete" parameterType="int">
+        DELETE FROM book WHERE bookid = #{id}
+    </delete>
 </mapper>
