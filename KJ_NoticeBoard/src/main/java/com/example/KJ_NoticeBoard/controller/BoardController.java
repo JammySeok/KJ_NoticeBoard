@@ -42,7 +42,6 @@ public class BoardController {
     public String detail(@PathVariable("id") Integer id, Model model) {
         BoardDTO boardDTO = boardService.detail(id);
         model.addAttribute("bookDetail", boardDTO);
-
         return "detailBook";
     }
 
@@ -51,5 +50,24 @@ public class BoardController {
     public String goDelete(@PathVariable("id") Integer id) {
        boardService.goDelete(id);
        return "redirect:/list";
+    }
+
+    // 도서정보 수정화면 호출
+    @GetMapping("/goUpdate/{id}")
+    public String goUpdate(@PathVariable("id") Integer id, Model model) {
+        BoardDTO boardDTO = boardService.detail(id);
+        model.addAttribute("bookDetail", boardDTO);
+        return "updateBook";
+    }
+
+    // 도서정보 수정
+    @PostMapping("/goUpdate/{id}")
+    public String goUpdate(BoardDTO boardDTO, Model model) {
+        boardService.goUpdate(boardDTO);   // update 작업 요청
+
+        // update 완료 후, 수정된 내용을 다시조회
+        BoardDTO dto = boardService.detail(boardDTO.getBookid());
+        model.addAttribute("bookDetail", dto);
+        return "detailBook";
     }
 }

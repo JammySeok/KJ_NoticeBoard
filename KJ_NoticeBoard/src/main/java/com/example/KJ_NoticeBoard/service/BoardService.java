@@ -32,4 +32,9 @@ public class BoardService {
     public void goDelete(Integer id) {
         boardRepository.goDelete(id);
     }
+
+    // 도서정보 수정
+    public void goUpdate(BoardDTO boardDTO) {
+        boardRepository.goUpdate(boardDTO);
+    }
 }

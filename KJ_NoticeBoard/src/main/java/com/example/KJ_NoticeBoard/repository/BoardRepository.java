@@ -28,4 +28,8 @@ public class BoardRepository {
     public void goDelete(Integer id) {
         sql.delete("Board.goDelete", id);
     }
+
+    public void goUpdate(BoardDTO boardDTO) {
+        sql.update("Board.goUpdate", boardDTO);
+    }
 }

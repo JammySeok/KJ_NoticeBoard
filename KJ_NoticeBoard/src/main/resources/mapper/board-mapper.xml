@@ -28,4 +28,13 @@
     <delete id="goDelete" parameterType="int">
         DELETE FROM book WHERE bookid = #{id}
     </delete>
+
+    <!-- 도서정보 수정 -->
+    <update id="goUpdate" parameterType="board">
+        UPDATE book
+            SET bookname = #{bookname},
+                publisher = #{publisher},
+                price = #{price}
+            WHERE bookid = #{bookid}
+    </update>
 </mapper>
