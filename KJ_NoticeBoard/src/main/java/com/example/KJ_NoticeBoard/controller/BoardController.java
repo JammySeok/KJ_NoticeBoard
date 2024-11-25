@@ -1,7 +1,9 @@
 package com.example.KJ_NoticeBoard.controller;
 
 import com.example.KJ_NoticeBoard.dto.BoardDTO;
+import com.example.KJ_NoticeBoard.dto.ReviewDTO;
 import com.example.KJ_NoticeBoard.service.BoardService;
+import com.example.KJ_NoticeBoard.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import java.util.List;
 public class BoardController {
 
     private final BoardService boardService;
+    private final ReviewService reviewService;
 
     // 도서 목록 조회
     @GetMapping("/list")
@@ -42,6 +45,10 @@ public class BoardController {
     public String detail(@PathVariable("id") Integer id, Model model) {
         BoardDTO boardDTO = boardService.detail(id);
         model.addAttribute("bookDetail", boardDTO);
+
+        List<ReviewDTO> reviewList = reviewService.getList(id);
+        model.addAttribute("reviewList", reviewList);
+
         return "detailBook";
     }
 
@@ -69,5 +76,15 @@ public class BoardController {
         BoardDTO dto = boardService.detail(boardDTO.getBookid());
         model.addAttribute("bookDetail", dto);
         return "detailBook";
+    }
+
+    @GetMapping("/{id}/addReview")
+    public String addReview() {
+        return "addReview";
+    }
+
+    @PostMapping("/{id}/addReview")
+    public void save(ReviewDTO reviewDTO) {
+        reviewService.save(reviewDTO);
     }
 }

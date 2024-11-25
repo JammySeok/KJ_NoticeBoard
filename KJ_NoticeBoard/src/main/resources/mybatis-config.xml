@@ -6,6 +6,6 @@
         <!--클래스 alias가 들어갈 공간-->
         <typeAlias type="com.example.KJ_NoticeBoard.controller.IndexController" alias="IndexController"/>
         <typeAlias type="com.example.KJ_NoticeBoard.dto.BoardDTO" alias="board"/>
-        <!--indexController예시-->
+        <typeAlias type="com.example.KJ_NoticeBoard.dto.ReviewDTO" alias="review"/>
     </typeAliases>
 </configuration>
