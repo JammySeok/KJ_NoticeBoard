@@ -5,14 +5,14 @@
 <mapper namespace="Review">
     <!-- sql문이 작성되는 공간  -->
     <!-- 도서목록 조회 -->
-    <select id="getList" parameterType="int" resultType="com.example.KJ_NoticeBoard.dto.ReviewDTO">
+    <select id="getList" parameterType="int" resultType="review">
         SELECT reviewid, bookid, username, comment
         FROM review
         WHERE bookid = #{id}
     </select>
 
-    <insert id="save" parameterType="board">
-        INSERT INTO review (username, comment)
-        VALUES (#{username}, #{comment})
+    <insert id="save" parameterType="review">
+        INSERT INTO review (bookid, username, comment)
+        VALUES (#{bookid}, #{username}, #{comment})
     </insert>
 </mapper>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.Clock;
 import java.util.List;
 
 @Controller
@@ -79,12 +80,14 @@ public class BoardController {
     }
 
     @GetMapping("/{id}/addReview")
-    public String addReview() {
+    public String addReview(@PathVariable("id") Integer id, Model model, BoardDTO boardDTO) {
+        boardDTO.setBookid(id);
+        model.addAttribute("bookDetail", boardDTO);
         return "addReview";
     }
 
     @PostMapping("/{id}/addReview")
-    public void save(ReviewDTO reviewDTO) {
-        reviewService.save(reviewDTO);
+    public void save(@PathVariable("id") Integer id, ReviewDTO reviewDTO) {
+        reviewService.save(id, reviewDTO);
     }
 }

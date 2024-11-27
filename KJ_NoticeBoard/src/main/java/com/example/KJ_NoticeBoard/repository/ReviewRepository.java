@@ -18,7 +18,8 @@ public class ReviewRepository {
         return sql.selectList("Review.getList", id);
     }
 
-    public void save(ReviewDTO reviewDTO) {
+    public void save(Integer id, ReviewDTO reviewDTO) {
+        reviewDTO.setBookid(id);
         sql.insert("Review.save", reviewDTO);
     }
 }

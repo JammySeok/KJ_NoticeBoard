@@ -19,7 +19,7 @@ public class ReviewService {
         return reviewRepository.getList(id);
     }
 
-    public void save(ReviewDTO reviewDto) {
-        reviewRepository.save(reviewDto);
+    public void save(Integer id, ReviewDTO reviewDto) {
+        reviewRepository.save(id, reviewDto);
     }
 }
