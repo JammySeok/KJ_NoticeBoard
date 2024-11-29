@@ -1,0 +1,24 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update</title>
+</head>
+<body>
+    <form th:action="@{/{id}/updateReview/{reviewid}(id=${bookDetail.bookid}, reviewid=${review.reviewid})}" method="post" name="updateForm">
+        유저명 : <input type="text" readonly name="username" th:value="${review.username}">
+        <br>
+        내용 : <input type="text" name="comment" th:value="${review.comment}">
+        <br>
+        <input type="button" value="수정" onclick="reviewUpdate()">
+    </form>
+</body>
+<script th:inline="javascript">
+    const reviewUpdate = () => {
+        const ok = confirm("수정하시겠습니까?");
+        if(ok) {
+            updateForm.submit();
+        }
+    }
+</script>
+</html>

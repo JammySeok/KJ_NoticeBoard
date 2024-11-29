@@ -1,5 +1,6 @@
 package com.example.KJ_NoticeBoard.repository;
 
+import com.example.KJ_NoticeBoard.dto.BoardDTO;
 import com.example.KJ_NoticeBoard.dto.ReviewDTO;
 import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -23,7 +24,15 @@ public class ReviewRepository {
         sql.insert("Review.save", reviewDTO);
     }
 
-    public void reviewDelete(Integer reviewid) {
-        sql.delete("Review.reviewDelete", reviewid);
+    public void deleteReview(Integer reviewid) {
+        sql.delete("Review.deleteReview", reviewid);
+    }
+
+    public void updateReview(ReviewDTO reviewDTO) {
+        sql.update("Review.updateReview", reviewDTO);
+    }
+
+    public ReviewDTO getTuple(Integer reviewid) {
+        return sql.selectOne("Review.getTuple", reviewid);
     }
 }

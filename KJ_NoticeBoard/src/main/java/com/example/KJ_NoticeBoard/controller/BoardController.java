@@ -92,7 +92,29 @@ public class BoardController {
 
     @GetMapping("/{id}/deleteReview/{reviewid}")
     public String deleteReview(@PathVariable("id") Integer id, @PathVariable("reviewid") Integer reviewid) {
-        reviewService.reviewDelete(reviewid);
+        reviewService.deleteReview(reviewid);
         return "redirect:/{id}";
     }
+
+    @GetMapping("/{id}/updateReview/{reviewid}")
+    public String updateReview(@PathVariable("id") Integer id, @PathVariable("reviewid") Integer reviewid, Model model) {
+        BoardDTO boardDTO = boardService.detail(id);
+        model.addAttribute("bookDetail", boardDTO);
+
+        ReviewDTO reviewDTO = reviewService.getTuple(reviewid);
+        model.addAttribute("review", reviewDTO);
+
+        return "updateReview";
+    }
+
+    @PostMapping("/{id}/updateReview/{reviewid}")
+    public String updateReview(ReviewDTO reviewDTO, Model model) {
+        reviewService.updateReview(reviewDTO);
+
+        List<ReviewDTO> dto = reviewService.getList(reviewDTO.getReviewid());
+        model.addAttribute("reviewList", dto);
+        return "redirect:/{id}";
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package com.example.KJ_NoticeBoard.service;
 
 
+import com.example.KJ_NoticeBoard.dto.BoardDTO;
 import com.example.KJ_NoticeBoard.dto.ReviewDTO;
 import com.example.KJ_NoticeBoard.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,15 @@ public class ReviewService {
         reviewRepository.save(id, reviewDto);
     }
 
-    public void reviewDelete(Integer reviewid) {
-        reviewRepository.reviewDelete(reviewid);
+    public void deleteReview(Integer reviewid) {
+        reviewRepository.deleteReview(reviewid);
+    }
+
+    public void updateReview(ReviewDTO reviewDTO) {
+        reviewRepository.updateReview(reviewDTO);
+    }
+
+    public ReviewDTO getTuple(Integer reviewid) {
+        return reviewRepository.getTuple(reviewid);
     }
 }

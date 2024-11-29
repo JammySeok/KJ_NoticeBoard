@@ -11,12 +11,25 @@
         WHERE bookid = #{id}
     </select>
 
+    <select id="getTuple" resultType="review">
+        SELECT reviewid, bookid, username, comment
+        FROM review
+        WHERE reviewid = #{reviewid}
+    </select>
+
     <insert id="save" parameterType="review">
         INSERT INTO review (bookid, username, comment)
         VALUES (#{bookid}, #{username}, #{comment})
     </insert>
 
-    <delete id="reviewDelete" parameterType="int">
+    <delete id="deleteReview" parameterType="int">
         DELETE FROM review WHERE reviewid = #{reviewid}
     </delete>
+
+    <update id="updateReview" parameterType="review">
+        UPDATE review
+        SET username = #{username},
+        comment = #{comment}
+        WHERE reviewid = #{reviewid}
+    </update>
 </mapper>

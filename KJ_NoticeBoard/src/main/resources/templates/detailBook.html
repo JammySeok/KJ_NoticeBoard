@@ -47,7 +47,7 @@
             <td th:text="${review.username}"></td>
             <td th:text="${review.comment}"></td>
             <td>
-                <button onclick="reviewUpdate()">수정</button>
+                <button th:onclick="reviewUpdate([[${bookDetail.bookid}]], [[${review.reviewid}]])">수정</button>
                 <button th:onclick="|reviewDelete(${review.reviewid})|">삭제</button>
             </td>
         </tr>
@@ -69,8 +69,8 @@
         }
     }
 
-    const reviewUpdate = () => {
-        location.href = "";
+    const reviewUpdate = (bookid, reviewid) => {
+        location.href = "/[[${bookDetail.bookid}]]/updateReview/" + reviewid;
     }
     const reviewDelete = (reviewid) => {
         const ok = confirm("삭제 하시겠습니까?");
