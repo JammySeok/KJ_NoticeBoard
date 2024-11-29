@@ -15,4 +15,8 @@
         INSERT INTO review (bookid, username, comment)
         VALUES (#{bookid}, #{username}, #{comment})
     </insert>
+
+    <delete id="reviewDelete" parameterType="int">
+        DELETE FROM review WHERE reviewid = #{reviewid}
+    </delete>
 </mapper>

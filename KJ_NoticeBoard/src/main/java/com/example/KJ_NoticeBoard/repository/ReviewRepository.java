@@ -22,4 +22,8 @@ public class ReviewRepository {
         reviewDTO.setBookid(id);
         sql.insert("Review.save", reviewDTO);
     }
+
+    public void reviewDelete(Integer reviewid) {
+        sql.delete("Review.reviewDelete", reviewid);
+    }
 }
