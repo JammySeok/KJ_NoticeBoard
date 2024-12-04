@@ -2,25 +2,75 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>---도서목록---</title>
+    <title>도서목록</title>
+    <style>
+        h1 {
+            margin-bottom:5px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        #box {
+            display: flex;
+            align-items: start;
+            justify-content: center;
+        }
+        div>a {
+            margin: 10px;
+            margin-left: 30px;
+            margin-right: 30px;
+            color: black;
+            text-decoration: none;
+        }
+        main {
+            margin: 30px;
+            display: flex;
+            align-items: start;
+            justify-content: center;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            word-wrap: break-word;
+        }
+    </style>
 </head>
-<body>
-<a href="/">Home</a>
-<table border="1">
-    <tr>
-        <th>bookid</th>
-        <th>bookname</th>
-        <th>publisher</th>
-        <th>price</th>
-    </tr>
-    <tr th:each = "board: ${bookList}">
-        <td>
-            <a th:text = "${board.bookid}" th:href="@{/{id}(id=${board.bookid})}"></a>
-        </td>
-        <td th:text = "${board.bookname}"></td>
-        <td th:text = "${board.publisher}"></td>
-        <td th:text = "${board.price}"></td>
-    </tr>
-</table>
+<body style="margin: 5%;">
+    <h1>도서목록</h1>
+    <nav class="container">
+        <div id="box">
+            <a href="/">Index</a>
+            <a href="">도서목록</a>
+            <a href="/addBook">도서추가</a>
+        </div>
+    </nav>
+    <hr style="margin-left: 5%; margin-right: 5%;">
+    <main>
+        <section>
+            <table>
+                <tr>
+                    <th style="width: 10%;">bookid</th>
+                    <th style="width: 60%;">bookname</th>
+                    <th style="width: 20%;">publisher</th>
+                    <th style="width: 10%;">price</th>
+                </tr>
+                <tr th:each = "board: ${bookList}">
+                    <td>
+                        <a th:text = "${board.bookid}" th:href="@{/{id}(id=${board.bookid})}"></a>
+                    </td>
+                    <td th:text = "${board.bookname}"></td>
+                    <td th:text = "${board.publisher}"></td>
+                    <td th:text = "${board.price}"></td>
+                </tr>
+            </table>
+        </section>
+    </main>
 </body>
 </html>

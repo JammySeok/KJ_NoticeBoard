@@ -2,11 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #007BFF;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            margin-top: 10px;
+        }
+        #box {
+            display: flex;
+            justify-content: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-top: 2px solid #007BFF;
+            border-bottom: 2px solid #007BFF;
+        }
+        #box a {
+            margin: 0 20px;
+            color: #007BFF;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        #box a:hover {
+            color: #0056b3;
+            transform: scale(1.1);
+        }
+        hr {
+            margin: 30px 5%;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        section {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1200px;
+        }
+        section img {
+            width: 50%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        section div {
+            flex: 1;
+        }
+        section h2 {
+            color: #007BFF;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <h2>Index Board</h2>
-    <a href="/list">도서목록 조회</a>
-    <a href="/addBook">도서추가</a>
+<h1>도서관리 프로그램</h1>
+<nav>
+    <div id="box">
+        <a href="">Index</a>
+        <a href="/list">도서목록</a>
+        <a href="/addBook">도서추가</a>
+    </div>
+</nav>
+<hr>
+<main>
+    <section>
+        <img src="/img/pic1.png" alt="도서 이미지">
+        <div>
+            <h2>기능 설명</h2>
+            <p>
+                1. 데이터베이스에 등록된 책 리스트 보기 <br>
+                2. 책 데이터베이스에 추가 <br>
+                3. 책 수정 <br>
+                4. 책 삭제 <br>
+                5. 리뷰 (책과 기능 동일) <br>
+            </p>
+        </div>
+    </section>
+</main>
 </body>
 </html>
