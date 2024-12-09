@@ -37,4 +37,8 @@ public class BoardService {
     public void goUpdate(BoardDTO boardDTO) {
         boardRepository.goUpdate(boardDTO);
     }
+
+    public List<BoardDTO> getSearch(String keyword) {
+        return boardRepository.getSearch(keyword);
+    }
 }

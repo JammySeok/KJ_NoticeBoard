@@ -36,4 +36,13 @@
                 price = #{price}
             WHERE bookid = #{bookid}
     </update>
+
+    <!-- 도서목록 검색 -->
+    <select id="getSearch" parameterType="string" resultType="board">
+        SELECT bookid, bookname, publisher, price
+        FROM book
+        WHERE bookname LIKE CONCAT('%', #{keyword}, '%')
+        OR publisher LIKE CONCAT('%', #{keyword}, '%')
+        ORDER BY bookid ASC
+    </select>
 </mapper>

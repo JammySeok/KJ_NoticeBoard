@@ -32,4 +32,8 @@ public class BoardRepository {
     public void goUpdate(BoardDTO boardDTO) {
         sql.update("Board.goUpdate", boardDTO);
     }
+
+    public List<BoardDTO> getSearch(String keyword) {
+        return sql.selectList("Board.getSearch", keyword);
+    }
 }

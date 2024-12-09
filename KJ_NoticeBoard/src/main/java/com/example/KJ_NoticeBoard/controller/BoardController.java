@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -78,6 +79,13 @@ public class BoardController {
         return "detailBook";
     }
 
+    @PostMapping("/search")
+    public String search(@RequestParam("keyword") String keyword, Model model) {
+        List<BoardDTO> bookList = boardService.getSearch(keyword);
+        model.addAttribute("bookList", bookList);
+        return "bookList";
+    }
+
     @GetMapping("/{id}/addReview")
     public String addReview(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("bookDetail", boardService.detail(id));
@@ -115,6 +123,4 @@ public class BoardController {
         model.addAttribute("reviewList", dto);
         return "redirect:/{id}";
     }
-
-
 }

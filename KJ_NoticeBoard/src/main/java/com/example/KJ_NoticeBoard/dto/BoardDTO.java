@@ -13,6 +13,4 @@ public class BoardDTO {
     private String bookname;
     private String publisher;
     private int price;
-
-
 }
