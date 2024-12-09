@@ -7,5 +7,6 @@
         <typeAlias type="com.example.KJ_NoticeBoard.controller.IndexController" alias="IndexController"/>
         <typeAlias type="com.example.KJ_NoticeBoard.dto.BoardDTO" alias="board"/>
         <typeAlias type="com.example.KJ_NoticeBoard.dto.ReviewDTO" alias="review"/>
+        <typeAlias type="com.example.KJ_NoticeBoard.dto.UserDTO" alias="login"/>
     </typeAliases>
 </configuration>
