@@ -123,4 +123,9 @@ public class BoardController {
         model.addAttribute("reviewList", dto);
         return "redirect:/{id}";
     }
+
+    @GetMapping("/accessDenied")
+    public String accessDenied() {
+        return "accessDenied";
+    }
 }

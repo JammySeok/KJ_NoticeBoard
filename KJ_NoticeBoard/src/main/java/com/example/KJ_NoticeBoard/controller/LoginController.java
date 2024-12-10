@@ -53,6 +53,6 @@ public class LoginController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();  // 세션 무효화 (로그아웃)
-        return "redirect:/";   // 로그아웃 후 홈 화면으로 리디렉션
+        return "redirect:/";
     }
 }

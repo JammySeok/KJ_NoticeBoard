@@ -11,5 +11,5 @@ public class UserDTO {
     private int id_num;
     private String id;
     private String password;
-    private int grade;
+    private int grade;   // root(1), user(2)
 }
