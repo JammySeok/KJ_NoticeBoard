@@ -17,6 +17,6 @@ public class WebConfig implements WebMvcConfigurer {
 
         // 권한 필요 인터셉터 등록
         registry.addInterceptor(new RoleInterceptor())
-                .addPathPatterns("/addBook"); // 특정 경로 보호
+                .addPathPatterns("/addBook", "/goDelete/*", "/goUpdate/*"); // 특정 경로 보호
     }
 }
